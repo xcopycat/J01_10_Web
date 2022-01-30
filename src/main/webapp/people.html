@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People</title>
+</head>
+<body>
+<h1>Список людей</h1>>
+<div id="results"</div>
+</body>
+<script>
+  var url = "api/people"
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, false);
+  xhr.send();
+  var result = xhr.responseText;
+  //alert(result);
+  people = JSON.parse(result);
+  for (var i=0; i<3; i++) {
+     var firstName = people[i].firstName;
+     var lastName = people[i].lastname;
+   // вывести результат в браузер  alert(firstName);
+   document.getElementById("results").innerHTML += firstName + "  " + lastName + "<br />";
+     }
+</script>
+</html>
